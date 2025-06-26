@@ -46,7 +46,7 @@ This integration enables *Salesforce* to send real-time notifications to designa
 | Field Label | API Name   | Description                |
 | :-------- | :-------- | :------------------------- |
 | `Case` | `Case__c` | Lookup - Case record|
-| `Message Sent` | `	Message_Sent__c` |  Slack message text |
+| `Message Sent` | `Message_Sent__c` |  Slack message text |
 | `Status` | `Status__c` | Log result - 'Success or Failure'|
 | `Timestamp` | `Timestamp__c` | Log history - created or updated  |
 
