@@ -1,0 +1,13 @@
+trigger SlackNotificationTrigger on Case (after insert, after update) {
+    for (Case c : Trigger.new) {
+        Case oldCase = Trigger.isUpdate ? Trigger.oldMap.get(c.Id) : null;
+
+        if (Trigger.isInsert) {
+            System.enqueueJob(new SlackNotificationQueueable(c.CaseNumber, c.Priority, c.Id, c.Status));
+        }
+
+        if (Trigger.isUpdate && c.Priority == 'High' && oldCase.Priority != 'High') {
+            System.enqueueJob(new SlackNotificationQueueable(c.CaseNumber, c.Priority, c.Id, c.Status));
+        }
+    }
+}

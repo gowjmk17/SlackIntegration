@@ -1,0 +1,86 @@
+public class SlackNotificationQueueable implements Queueable, Database.AllowsCallouts {
+    private String caseNumber;
+    private String priority;
+    private Id caseId;
+    private String status;
+    
+    public SlackNotificationQueueable(String caseNumber, String priority, Id caseId, String status) {
+        this.caseNumber = caseNumber;
+        this.priority = priority;
+        this.caseId = caseId;
+        this.status = status;
+        
+    }
+    
+    public void execute(QueueableContext context) {
+        if (caseId == null) {
+            System.debug('Error: caseId is null.');
+            return;
+        }
+        
+        Http http = new Http();
+        HttpRequest request = new HttpRequest();
+        
+        request.setEndpoint('callout:Slack_Webhook/services/T091U7KGGDT/B091UA8BDRT/WfbzX8hm7rQiWblZtOVn6mOJ');
+        request.setMethod('POST');
+        request.setHeader('Content-Type', 'application/json');
+                
+        String instanceUrl =  System.Url.getOrgDomainUrl().toExternalForm(); 
+        String caseUrl = instanceUrl + '/lightning/r/Case/' + caseId + '/view';
+        
+        String subjectText = (this.status == 'New') ? 'New Case Created' : 'New High Priority Case';
+        String plainTextMessage = subjectText + '\n' + 'Case Number: ' + caseNumber + '\n' + 'Priority: ' + priority + '\n' + 'Link: ' + caseUrl;
+        
+        String messageBody = JSON.serialize(
+            new Map<String, Object>{        		
+                'blocks' => new List<Object>{
+                    new Map<String,Object>{
+                        'type' => 'header',
+                            'text' => new Map<String,Object>{
+                                'type' => 'plain_text',
+                                    'text' => subjectText
+                                    }
+                    },
+                        new Map<String, Object>{
+                            'type' => 'section',
+                                'text' => new Map<String, Object>{
+                                    'type' => 'mrkdwn',
+                                        'text' => '*Case Number:* ' + caseNumber + '\n' +
+                                        '*Priority:* ' + priority + '\n' +
+                                        '<' + caseUrl + '|View Case>'
+                                        }
+                        }
+                }
+            }
+        );
+        
+        request.setBody(messageBody);
+        
+        try {
+            HttpResponse response = http.send(request);
+            if(response.getStatusCode() == 200){
+                System.debug('Success! Slack response: ' + response.getBody());
+                String resStatus = 'Success'; 
+                insertLog(caseId, plainTextMessage, resStatus);
+                
+            }else{
+                System.debug('Failed');
+            }
+            
+        } catch (Exception ex) {
+            System.debug('Slack callout failed: ' + ex.getMessage());
+            String resStatus = 'Failure'; 
+            insertLog(caseId, plainTextMessage, resStatus);
+        }
+    }
+    
+    private static void insertLog(Id caseId, String plainTextMessage, String status) {
+        insert new Slack_Message_Log__c(
+            Case__c = caseId,
+            Message_Sent__c = plainTextMessage,
+            Status__c = status,
+            Timestamp__c = System.now()
+        );
+    }
+}
+
