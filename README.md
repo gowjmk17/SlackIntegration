@@ -77,7 +77,7 @@ You can invoke this queueable:
 
 | Named Credential | External Credential | Permission Sets |
 |------------------------|-----------|---------------------|
-| ![Named](assets/Slack_Webhook.png) | ![External](assets/External_Credential.png) | ![Permission](assets/Permission_Sets.png) |
+| ![Named](Assets/Slack_Webhook.png) | ![External](Assets/External_Credential.png) | ![Permission](Assets/Permission_Sets.png) |
 
 ## Documentation
 
