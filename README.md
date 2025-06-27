@@ -74,5 +74,5 @@ You can invoke this queueable:
 4. Review records in  Slack_Message_Log__c
 ## Documentation
 
-[ ](https://linktodocumentation)
+[ ](Slack-Salesforce_Integration_Documentation.docx)
 
