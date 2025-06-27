@@ -12,11 +12,11 @@ This integration enables *Salesforce* to send real-time notifications to designa
 - Scalable and robust
 
 
-## Screenshots
+## 📷 Screenshots
 
 | Named Credential | External Credential | Permission Sets |
 |------------------------|-----------|---------------------|
-| ![Named](Slack_Webhook.png/1.png) | ![External](assests/External_Credential.png) | ![Permission](assests/Permission_Sets.png) |
+| ![Named](assests/Slack_Webhook.png) | ![External](assests/External_Credential.png) | ![Permission](assests/Permission_Sets.png) |
 
 ## 	:hammer_and_wrench: Slack Setup
 
