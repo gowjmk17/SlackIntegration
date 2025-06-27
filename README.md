@@ -72,9 +72,8 @@ You can invoke this queueable:
 2. Test by updating a Case to High Priority
 3. Check your Slack channel for the notification
 4. Review records in  Slack_Message_Log__c
-## Documentation
 
-## Slack–Salesforce Integration Documentation
+## Documentation
 
 For detailed integration instructions and setup steps, see the [Slack–Salesforce Integration Documentation](https://github.com/gowjmk17/SlackIntegration/blob/main/Slack-Salesforce_Integration_Documentation.docx).
 
