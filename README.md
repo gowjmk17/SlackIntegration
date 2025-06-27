@@ -73,7 +73,7 @@ You can invoke this queueable:
 4. Review records in  Slack_Message_Log__c
 
 
-## 📷 Screenshots
+## :camera_flash: Screenshots
 
 | Named Credential | External Credential | Permission Sets |
 |------------------------|-----------|---------------------|
