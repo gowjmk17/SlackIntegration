@@ -11,7 +11,7 @@ This integration enables *Salesforce* to send real-time notifications to designa
 - Easily configurable via triggers or automation
 - Scalable and robust
 
-## 	:hammer_and_wrench: Slack Setup
+## 	:wrench: Slack Setup
 
 1. Go to: https://api.slack.com/apps
 
