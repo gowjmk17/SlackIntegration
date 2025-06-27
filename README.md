@@ -11,13 +11,6 @@ This integration enables *Salesforce* to send real-time notifications to designa
 - Easily configurable via triggers or automation
 - Scalable and robust
 
-
-## 📷 Screenshots
-
-| Named Credential | External Credential | Permission Sets |
-|------------------------|-----------|---------------------|
-| ![Named](assests/Slack_Webhook.png) | ![External](assests/External_Credential.png) | ![Permission](assests/Permission_Sets.png) |
-
 ## 	:hammer_and_wrench: Slack Setup
 
 1. Go to: https://api.slack.com/apps
@@ -78,6 +71,13 @@ You can invoke this queueable:
 2. Test by updating a Case to High Priority
 3. Check your Slack channel for the notification
 4. Review records in  Slack_Message_Log__c
+
+
+## 📷 Screenshots
+
+| Named Credential | External Credential | Permission Sets |
+|------------------------|-----------|---------------------|
+| ![Named](assets/Slack_Webhook.png) | ![External](assets/External_Credential.png) | ![Permission](assets/Permission_Sets.png) |
 
 ## Documentation
 
