@@ -65,7 +65,7 @@ This Queueable class:
 ### SlackNotificationTrigger.cls
 You can invoke this queueable:
 - From a Case trigger after insert/update.
-## :test_tube: Testing 
+## :microscope: Testing 
 
 1.  Test with a new Case record (e.g. Status: New)
 2. Test by updating a Case to High Priority
