@@ -4,7 +4,7 @@
 This integration enables *Salesforce* to send real-time notifications to designated **Slack** channels whenever a **Case** is created or updated. It uses a *Queueable Apex* class with callouts to Slack's Incoming Webhook URL, making it asynchronous and governor-limit friendly.
 
 
-## :pushpin: Features
+## :black_nib: Features
 - Automatic Slack notifications for new or updated cases
 - Centralized logging using a custom object (Slack_Message_Log__c)
 - Uses Named Credentials and External Credentials for secure access
